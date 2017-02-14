@@ -1,0 +1,143 @@
+namespace ArtistDatabase.Migrations
+{
+    using Models;
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Migrations;
+    using System.Linq;
+
+    internal sealed class Configuration : DbMigrationsConfiguration<ArtistDatabase.Models.ArtistDBContext>
+    {
+        public Configuration()
+        {
+            AutomaticMigrationsEnabled = false;
+        }
+
+        protected override void Seed(ArtistDatabase.Models.ArtistDBContext context)
+        {
+            context.Artists.AddOrUpdate(i => i.Name,
+                new Artist
+                {
+                    ID = 1,
+                    Name = "Pablo Ruiz y Picasso",
+                    Picture = "http://a5.files.biography.com/image/upload/c_fit,cs_srgb,dpr_1.0,h_1200,q_80,w_1200/MTE1ODA0OTcxNzU0MDk2MTQx.jpg",
+                    BirthDate = DateTime.ParseExact("25-10-1881", "dd-MM-yyyy", null),
+                    Nationality = "Spanish",
+                    ArtStyle = "Cubism, Surrealism",
+                    Info = "Picasso was a Spanish painter, sculptor and ceramicist, among other things. He spent most of his adult life in France, " +
+                    " and is regarding as one of the greatest and most influential artists of the 20th century. He is known as co-founding of the" +
+                    " 'Cubist' movement; the invention of constructed sculpture, also being the co-inventor of collage, and for the wide variety" +
+                    " of styles that he helped develop and explore. Picasso, Henri Matisse and Marcel Duchamp are regarded as the three artists" +
+                    " who most defined the revolutionary developments in the plastic arts in the opening decades of the 20th century, responsible" +
+                    " for significant developments in painting, sculpture, printmaking and ceramics. Picasso demonstrated extraordinary artistic" +
+                    " talent in his early years, painting in a naturalistic manner through his childhood and adolescence.During the first decade" +
+                    " of the 20th century, his style changed as he experimented with different theories, techniques, and ideas.His work is often" +
+                    " categorized into periods.While the names of many of his later periods are debated, the most commonly accepted periods in his" +
+                    " work are the Blue Period(1901–1904), the Rose Period(1904–1906), the African - influenced Period(1907–1909)," +
+                    " Analytic Cubism(1909–1912),and Synthetic Cubism(1912–1919),also referred to as the Crystal period. Exceptionally prolific" +
+                    " throughout the course of his long life, Picasso achieved universal renown and immense fortune for his revolutionary artistic" +
+                    " accomplishments, and became one of the best - known figures in 20th - century art.",
+                    Artwork1 = "https://mocochocodotcom.files.wordpress.com/2013/11/how-to-recognize-painters-by-their-work-picasso2.jpg",
+                    Artwork2 = "http://paintingandframe.com/uploadpic/pablo_picasso/big/les_demoiselles_d_avignon_c_1907.jpg",
+                    Artwork3 = "http://www.themost10.com/wp-content/uploads/2012/03/Blue-Nude-By-Pablo-Picasso.jpg?09df94"
+                },
+
+                new Artist
+                {
+                    ID = 2,
+                    Name = "Leonardo da Vinci",
+                    Picture = "http://www.leonardodavinci.net/images/leonardo-da-vinci.jpg",
+                    BirthDate = DateTime.ParseExact("15-04-1452", "dd-MM-yyyy", null),
+                    Nationality = "Italian",
+                    ArtStyle = "High Renaissance",
+                    Info = "Leonardo di ser Piero da Vinci was an Italian polymath whose areas of interest included invention, painting," +
+                    " sculpting, architecture, science, music, mathematics, engineering, literature, anatomy, geology, astronomy, botany, writing, history," +
+                    " and cartography. He has been variously called the father of palaeontology, ichnology, and architecture, and is widely considered one" +
+                    " of the greatest painters of all time. Sometimes credited with the inventions of the parachute, helicopter and tank, he epitomised" +
+                    " the Renaissance humanist ideal.Many historians and scholars regard Leonardo as the prime exemplar of the 'Universal Genius' or " +
+                    "'Renaissance Man', an individual of 'unquenchable curiosity' and 'feverishly inventive imagination'. According to art historian Helen" +
+                    " Gardner, the scope and depth of his interests were without precedent in recorded history, and 'his mind and personality seem to us" +
+                    " superhuman, while the man himself mysterious and remote'. Marco Rosci notes that while there is much speculation regarding his life" +
+                    " and personality, his view of the world was logical rather than mysterious, and that the empirical methods he employed were unorthodox" +
+                    " for his time. Leonardo was, and is, renowned primarily as a painter. Among his works, the Mona Lisa is the most famous and most" +
+                    " parodied portrait and The Last Supper the most reproduced religious painting of all time, their fame approached only by Michelangelo's" +
+                    " The Creation of Adam. Leonardo's drawing of the Vitruvian Man is also regarded as a cultural icon, being reproduced on items as" +
+                    " varied as the euro coin, textbooks, and T-shirts. Perhaps fifteen of his paintings have survived. Nevertheless, these few works," +
+                    " together with his notebooks, which contain drawings, scientific diagrams, and his thoughts on the nature of painting, compose a" +
+                    " contribution to later generations of artists rivalled only by that of his contemporary, Michelangelo.",
+                    Artwork1 = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg/402px-Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg",
+                    Artwork2 = "https://upload.wikimedia.org/wikipedia/commons/2/23/Leonardo_da_Vinci_-_Last_Supper_(copy)_-_WGA12732.jpg",
+                    Artwork3 = "http://blog.world-mysteries.com/wp-content/uploads/2011/01/vitruvian_man_mixed.jpg"
+                },
+
+                new Artist
+                {
+                    ID = 3,
+                    Name = "Georgia O'Keeffe",
+                    Picture = "http://1874.img.pp.sohu.com.cn/images/blog/2008/11/16/20/26/11e4d90ce26g213.jpg",
+                    BirthDate = DateTime.ParseExact("15-11-1887", "dd-MM-yyyy", null),
+                    Nationality = "American",
+                    ArtStyle = "American Modernism",
+                    Info = "Georgia Totto O'Keeffe was an American artist. She is best known for her paintings of enlarged flowers, New York skyscrapers," +
+                    " and New Mexico landscapes. O'Keeffe has been recognized as the 'Mother of American modernism'. O'Keeffe studied at the School of the" +
+                    " Art Institute of Chicago from 1905 to 1906. In 1907, she attended the Art Students League in New York City, where she studied under" +
+                    " William Merritt Chase. In 1908, she won the League's William Merritt Chase still-life prize for her oil painting Dead Rabbit with" +
+                    " Copper Pot. Her prize was a scholarship to attend the League's outdoor summer school in Lake George, New York. While in the city" +
+                    " in 1908, O'Keeffe attended an exhibition of Rodin's watercolors at the gallery 291, owned by her future husband, photographer Alfred" +
+                    " Stieglitz. O'Keeffe abandoned the idea of pursuing a career as an artist in late 1908, claiming that she could never distinguish" +
+                    " herself as an artist within the mimetic tradition which had formed the basis of her art training. She took a job in Chicago as" +
+                    " a commercial artist. She did not paint for four years, and said that the smell of turpentine made her sick. She was inspired to" +
+                    " paint again in 1912, when she attended a class at the University of Virginia Summer School, where she was introduced to the innovative" +
+                    " ideas of Arthur Wesley Dow by Alon Bement. Dow encouraged artists to express themselves using line, color, and shading" +
+                    " harmoniously. From 1912-14, she taught art in the public schools in Amarillo in the Texas Panhandle. She attended Teachers College" +
+                    " of Columbia University from 1914–15, where she took classes from Dow, who greatly influenced O'Keeffe's thinking about the process of" +
+                    " making art. She served as a teaching assistant to Bement during the summers from 1913–16 and taught at Columbia College, Columbia," +
+                    " South Carolina in late 1915, where she completed a series of highly innovative charcoal abstractions. After further course work at" +
+                    " Columbia in early 1916 and summer teaching for Bement, she took a job as head of the art department at West Texas State Normal College" +
+                    " from late 1916 to February 1918, the fledgling West Texas A&M University in Canyon just south of Amarillo. While there, she often" +
+                    " visited the Palo Duro Canyon, making its forms a subject in her work.",
+                    Artwork1 = "http://www.georgiaokeeffe.net/images/paintings/rams-head.jpg",
+                    Artwork2 = "https://learnodo-newtonic.com/wp-content/uploads/2015/09/Red-Canna-1924-Georgia-OKeeffe.jpg",
+                    Artwork3 = "http://www.themasterpiececards.com/hs-fs/hub/40667/file-25876050-jpg/images/okeeffe_jack_2_from_nga-resized-600.jpg?t=1465250810631"
+                },
+
+                new Artist
+                {
+                    ID = 4,
+                    Name = "Vincent van Gogh",
+                    Picture = "http://site.artsheaven.com/blog/wp-content/uploads/2015/10/vincent.jpg",
+                    BirthDate = DateTime.ParseExact("30-03-1853", "dd-MM-yyyy", null),
+                    Nationality = "Dutch",
+                    ArtStyle = "Post-Impressionism",
+                    Info = "Vincent Willem van Gogh was a Dutch painter who is among the most famous and influential figures in the history of Western art." +
+                    " In just over a decade he created about 2100 artworks, including around 860 oil paintings, most of them in the last two years of his" +
+                    " life. They include landscapes, still lifes, portraits and self-portraits, and are characterised by bold, symbolic colours, and" +
+                    " dramatic, impulsive and highly expressive brushwork that contributed to the foundations of modern art. He sold only one painting" +
+                    " during his lifetime and became famous after his suicide at age 37, which followed years of poverty and mental illness. Van Gogh's" +
+                    " early works, mostly still lifes and depictions of peasant labourers, contain few signs of the vivid colour that distinguished his" +
+                    " later work. In 1886 he moved to Paris and discovered the French Impressionists. As his work developed he created a new approach to" +
+                    " still lifes and local landscapes. His paintings grew brighter in colour as he developed a style that became fully realised during his" +
+                    " stay in Arles in the south of France in 1888. He lived there in the Yellow House and, with the French artist Paul Gauguin, developed a" +
+                    " concept of colour that symbolised inner emotion. During this period he broadened his subject matter to include olive trees, cypresses," +
+                    " wheat fields and sunflowers. In Nuenen, Van Gogh focused on painting and drawing. Working outside and very quickly, he completed" +
+                    " sketches and paintings of weavers and their cottages. In August 1884, Margot Begemann, a neighbour's daughter and ten years" +
+                    " his senior, began joining him on his painting forays; she fell in love, and he reciprocated, though less enthusiastically. They" +
+                    " decided to marry, but the idea was opposed by both families, following which Margot took an overdose of strychnine. She was saved" +
+                    " when Van Gogh rushed her to a nearby hospital. On 26 March 1885, his father died of a heart attack. Van Gogh painted several" +
+                    " groups of still lifes in 1885. During his two - year stay in Nuenen, he completed numerous drawings and watercolours, and nearly" +
+                    " 200 oil paintings.His palette consisted mainly of sombre earth tones, particularly dark brown, and showed no sign of the vivid colours" +
+                    " that distinguish his later work.Considered a madman and a failure in his lifetime,Van Gogh exists in the public imagination as the" +
+                    " quintessential misunderstood genius, the artist 'where discourses on madness and creativity converge'.His reputation began to grow" +
+                    " in the early 20th century as elements of his painting style came to be incorporated by the Fauves and German Expressionists.He attained" +
+                    " widespread critical, commercial and popular success over the ensuing decades, and is remembered as an important but tragic painter," +
+                    " whose troubled personality typifies the romantic ideal of the tortured artist.",
+                    Artwork1 = "https://upload.wikimedia.org/wikipedia/commons/9/94/Starry_Night_Over_the_Rhone.jpg",
+                    Artwork2 = "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Vincent_van_Gogh_-_De_slaapkamer_-_Google_Art_Project.jpg/1280px-Vincent_van_Gogh_-_De_slaapkamer_-_Google_Art_Project.jpg",
+                    Artwork3 = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Vincent_Willem_van_Gogh_128.jpg/175px-Vincent_Willem_van_Gogh_128.jpg"
+                }
+
+            );
+        }
+    }
+}
+

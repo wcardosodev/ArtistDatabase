@@ -1,0 +1,125 @@
+﻿@model ArtistDatabase.Models.Artist
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="row">
+    <div class="col-sm-12">
+        <h2>@Html.DisplayFor(model => Model.Name)</h2>
+    </div>
+</div>
+<hr />
+<h4>Life and times of ...</h4>
+<div class="row">
+    <div class="col-sm-9">
+        @if (Model.Info != null)
+        {
+            <p>
+                @Html.DisplayFor(model => model.Info)
+            </p>                   
+        }
+        else {
+            <p>No career or information about @Html.DisplayFor(model => Model.Name)'s life has currently been provided! :(</p>
+        }
+    </div>
+    <div class="col-sm-3">
+        @if (Model.Picture != null)
+        {
+            <div>
+                <img class="img-responsive border" src="@Url.Content(Model.Picture)" />
+            </div>                  
+        }
+        else
+        {
+                <img class="img-responsive border" src="~/Images/Silhouette.jpg"/>
+        }
+        <table class="border pic-info">
+            <tbody>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => Model.BirthDate)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => Model.BirthDate)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => Model.Nationality)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => Model.Nationality)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => Model.ArtStyle)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => Model.ArtStyle)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-sm-4">
+        @if (Model.Artwork1 != null)
+        {
+            <img class="img-responsive border" src="@Url.Content(Model.Artwork1)" />              
+        }
+        else
+        {
+            @*<img class="img-responsive border" src="http://yeongkeun.com/wp-content/uploads/2016/08/art-1030132_960_720.jpg"/>*@
+        }
+    </div>
+    <div class="col-sm-4">
+        @if (Model.Artwork2 != null)
+        {
+            <img class="img-responsive border" src="@Url.Content(Model.Artwork2)" />
+        }
+        else
+        {
+
+        }
+        @*else if(Model.Artwork1 == null && Model.Artwork2 == null)
+        {
+            <img class="img-responsive border" src="http://www.lineage2.com/media/content-images/artwork/Infinite-Odyssey-Artwork-5.jpg" />
+        }
+        else if(Model.Artwork1 != null && Model.Artwork2 == null)
+        {
+            
+        }*@
+    </div>
+    <div class="col-sm-4">
+        @if (Model.Artwork3 != null)
+        {
+            <img class="img-responsive border" src="@Url.Content(Model.Artwork3)" />
+        }
+        else
+        {
+
+        }
+        @*else if(Model.Artwork1 == null && Model.Artwork2 == null && Model.Artwork3 == null )
+        {
+            <img class="img-responsive border" src="https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2016/02/Firewatch-1200x600.jpg" />
+        }
+        else if ((Model.Artwork1 != null && Model.Artwork2 != null && Model.Artwork3 == null) || (Model.Artwork1 != null && Model.Artwork2 == null && Model.Artwork3 == null))
+        {
+
+        }*@
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-sm-6 text-left">                        
+        @Html.ActionLink("Artists", "Index", null, new { @class = "btn btn-default" })
+        @Html.ActionLink("Gallery", "Gallery", new { id = Model.ArtistID }, new { @class = "btn btn-default" })       
+    </div>
+    <div class="col-sm-6 text-right">              
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ArtistID, }, new { @class = "btn btn-default" })
+        @Html.ActionLink("Delete", "Delete", new { id = Model.ArtistID }, new { @class = "btn btn-default" })
+    </div>
+</div>

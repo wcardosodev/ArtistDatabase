@@ -1,0 +1,129 @@
+@model ArtistDatabase.Models.Artist
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Artist</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Picture)
+        </dt>
+
+        <dd>            
+            @if (Model.Picture != null)
+            {
+                <img src="@Url.Content(Model.Picture)" height="175" width="175" />
+            }
+            else
+            {
+                <img src="@Url.Content("http://www.qqxxzx.com/images/silhouette-pictures/silhouette-pictures-11.jpg")" height="175" width="175" />
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nationality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nationality)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArtStyle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArtStyle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Info)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Info)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Artwork1)
+        </dt>
+
+        <dd>
+            @if (Model.Artwork1 != null)
+            {
+                <img src="@Url.Content(Model.Artwork1)" height="150" width="150" />
+            }
+            else {
+                @*<img src="@Url.Content("http://www.spyderonlines.com/images/wallpapers/arts-wallpaper-hd/arts-wallpaper-hd-23.jpg")" height="150" width="150"/>*@
+                return;
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Artwork2)
+        </dt>
+
+        <dd>
+            @if (Model.Artwork2 != null)
+            {
+                <img src="@Url.Content(Model.Artwork2)" height="150" width="150" />
+            }
+            else
+            {
+                @*<img src="@Url.Content("http://www.awesomeart.net/hiroshige-black-koi.jpg")" height="150" width="150" />*@
+                return;
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Artwork3)
+        </dt>
+
+        <dd>
+            @if (Model.Artwork3 != null)
+            {
+                <img src="@Url.Content(Model.Artwork3)" height="150" width="150" />
+            }
+            else
+            {
+                @*<img src="@Url.Content("http://www.orientaloutpost.com/big/n6464.jpg")" height="150" width="150" />*@
+                return;
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Delete", "Delete", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

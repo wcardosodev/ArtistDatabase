@@ -1,0 +1,38 @@
+﻿@model ArtistDatabase.Models.Artwork
+
+@{
+    ViewBag.Title = "Delete Artwork";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h2>Delete?</h2>    
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-sm-4">
+        <img class="img-responsive border" src="@Url.Content(Model.Picture)" />
+        <h4>@Html.DisplayFor(model => Model.Name)</h4>
+        <p>by @Html.DisplayFor(model => Model.ArtistName)</p>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-sm-6 text-left">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" />
+                @Html.ActionLink("Cancel", "Gallery", null, new { @class = "btn btn-default" })
+            </div>
+        }
+    </div>
+    <div class="col-sm-6 text-right">
+        @Html.ActionLink("Artists", "Index", null, new { @class = "btn btn-default" })
+        @Html.ActionLink("Gallery", "Gallery", null, new { @class = "btn btn-default" })
+    </div>
+</div>
+

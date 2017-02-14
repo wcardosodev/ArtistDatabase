@@ -1,0 +1,53 @@
+﻿@model ArtistDatabase.Models.Artist
+
+@{
+    ViewBag.Title = "Delete";
+}
+<div class="row">
+    <div class="col-sm-12">
+        <h2>Delete?</h2>
+        @if (Model.Name != null)
+        {
+            <h4>@Html.DisplayFor(model => Model.Name)</h4>
+        }
+        else
+        {
+            <h4>Artist</h4>
+        }
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-sm-3">
+        @if (Model.Picture != null)
+        {
+            <img class="img-responsive border" src="@Url.Content(Model.Picture)" />
+        }
+        else
+        {
+            <img class="img-responsive border" src="~/Images/Silhouette.jpg" />
+        }
+    </div>
+    <div class="col-sm-9">
+        @Html.DisplayFor(model => model.Info)
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-sm-6 text-left">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" />
+                @Html.ActionLink("Cancel", "Details", new { id = Model.ArtistID }, new { @class = "btn btn-default" })
+            </div>
+        }
+    </div>
+    <div class="col-sm-6 text-right">                      
+        @Html.ActionLink("Artists", "Index", null, new { @class = "btn btn-default" })
+        @Html.ActionLink("Gallery", "Gallery", new { id = Model.ArtistID }, new { @class = "btn btn-default" })
+    </div>
+</div>
+   

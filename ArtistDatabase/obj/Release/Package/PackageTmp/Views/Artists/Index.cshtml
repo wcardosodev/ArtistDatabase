@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ArtistDatabase.Models.Artist>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="page-header text-center">
+    <h1>Famous Modern and Historical Artists</h1>
+</div>
+<div class="row">
+    <div class="col-sm-6 text-left">
+        @Html.ActionLink("Add new Artist", "Create", null, new { @class = "btn btn-default" })
+        @Html.ActionLink("Gallery", "Gallery", null, new { @class = "btn btn-default"})
+    </div>
+    <div class="col-sm-6 text-right">
+        @using (Html.BeginForm("Index", "Artists", FormMethod.Get))
+        {
+            <div>
+                    Nationality: @Html.DropDownList("nationality", "All")
+                    Name: @Html.TextBox("name")
+                <input type="submit" class="btn btn-default" value="Search" />
+            </div>
+        }
+    </div>
+</div>
+<hr />
+<br />
+<div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-3">
+                @if (item.Picture != null)
+                {
+                    <div class="hovereffect">
+                        <img class="img-responsive border" src="@Url.Content(item.Picture)" />
+                        <div class="overlay">
+                            <h2>@Html.ActionLink(item.Name, "Details", new { id = item.ArtistID })</h2>
+                            @*<p>@Html.ActionLink("Gallery", "Gallery", new { id = item.ArtistID })</p>*@
+                        </div>
+                    </div>                    
+                }
+                else
+                {
+                    <div class="hovereffect">
+                        <img class="img-responsive border" src="~/Images/Silhouette.jpg" />
+                        <div class="overlay">
+                            <h2>@Html.ActionLink(item.Name, "Details", new { id = item.ArtistID })</h2>
+                            @*<p>@Html.ActionLink("Gallery", "Gallery", new { id = item.ArtistID })</p>*@
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    <br />
+    <br>
+</div>

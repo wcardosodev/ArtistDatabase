@@ -1,0 +1,151 @@
+@model IEnumerable<ArtistDatabase.Models.Artist>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="container heading-container">
+    <div class="header">
+        <h2>Famous Modern and Historical Artists</h2>
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Add new Artist", "Create")
+
+    @using (Html.BeginForm("Index", "Artists", FormMethod.Get))
+    {
+        <p> 
+            Name: @Html.TextBox("SearchString")
+            <input type="submit" value="Search" />
+            Nationality: @Html.DropDownList("artistNation", "All")
+        </p>
+    }
+    
+</p>
+<table class="table">
+    <tr>
+        @*<th class="text-center">
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Picture)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nationality)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArtStyle)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Info)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Artwork1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Artwork2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Artwork3)
+        </th>
+        <th class="text-center">
+            <p>Actions</p>
+        </th>*@
+    </tr>
+
+    <tr>
+@foreach (var item in Model)
+{
+        <td>
+            <a href="@Url.Action("Details", new { id = item.ID })">
+            @if (item.Picture != null)
+            {
+                <img src="@Url.Content(item.Picture)" height="175" width="175" />
+            }
+            else
+            {
+                <img src="@Url.Content("http://www.qqxxzx.com/images/silhouette-pictures/silhouette-pictures-11.jpg")" height="175" width="175" />
+            }
+            </a> <br />
+            @Html.ActionLink(item.Name, "Details", new { id = item.ID })
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.BirthDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nationality)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArtStyle)
+        </td>*@
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Rating)
+        </td>
+        @<td>
+            @Html.DisplayFor(modelItem => item.Info)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Artwork1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Artwork2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Artwork3)
+        </td>*@
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        </td>*@
+}
+    </tr>
+
+</table>
+
+@foreach (var item in Model)
+{
+        <td>
+            <a href="@Url.Action("Details", new { id = item.ID })">
+            @if (item.Picture != null)
+            {
+                <img src="@Url.Content(item.Picture)" height="175" width="175" />
+            }
+            else
+            {
+                <img src="@Url.Content("http://www.qqxxzx.com/images/silhouette-pictures/silhouette-pictures-11.jpg")" height="175" width="175" />
+            }
+            </a> <br />
+            @Html.ActionLink(item.Name, "Details", new { id = item.ID })
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.BirthDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nationality)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArtStyle)
+        </td>*@
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Rating)
+        </td>
+        @<td>
+            @Html.DisplayFor(modelItem => item.Info)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Artwork1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Artwork2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Artwork3)
+        </td>*@
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        </td>*@
+}
