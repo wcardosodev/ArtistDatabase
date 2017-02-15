@@ -1,17 +1,38 @@
 body {
-    background-color: #758AA8;
+/*    background-color: #758AA8;*/
+    background: url("https://s-media-cache-ak0.pinimg.com/originals/53/1e/ed/531eedd3762805b09ab1531555d88918.jpg") no-repeat center center fixed;
+    background-size: cover;
+    font-family: "Times New Roman", Times, serif;
     color: white;
 }
 .body-content {
-    background-color: #2C4770;
-    border: 1px solid black;
-/*    box-shadow: 0px 5px 10px 5px grey;*/
+/*    background-color: #2C4770;*/
+    color: black;
 }
+
+.body-content h1, .body-content h2, .body-content h4{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 28px;
+    color: black;
+}
+
+.body-content h4{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 22px;
+    color: black;
+}
+
+.body-content p{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+    color: black;
+}
+
 .img-responsive {
     width: 100%;
     height: 250px;
     display: inline-block;
-
+/*     filter: grayscale(1);*/
 }
 
 .top-buffer {
@@ -28,23 +49,16 @@ table {
 }
 
 .pic-info{
-    color: white;
-    background-color: #4C668C;
-    margin: 0;
-    padding: 0;
-}
-
-.pic-info:hover{
-        color: white;
-    background-color: #4C668C;
+    color: black;
+    background-color: #E9E7DA;
     margin: 0;
     padding: 0;
 }
 
 .btn-default {
     border-color: black;
-    background-color: #4C668C;
-    color: white;
+    background-color: #e9e7da;
+    color: black;
 }
 
 .white-link{
@@ -52,24 +66,19 @@ table {
 }
 
 /*-------------------LOAD GIF-------------------------*/
-
-
-/*-------------------LOAD IMAGE SPINNER---------------*/
-.glyphicon.spinning {
-    animation: spin 1s infinite linear;
-    -webkit-animation: spin2 1s infinite linear;
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
 }
 
 @keyframes spin {
-    from { transform: scale(1) rotate(0deg); }
-    to { transform: scale(1) rotate(360deg); }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
-
-@-webkit-keyframes spin2 {
-    from { -webkit-transform: rotate(0deg); }
-    to { -webkit-transform: rotate(360deg); }
-}
-
 /*-------------------CSS IMAGE EFFECT-------------------*/
 
 .hovereffect {
